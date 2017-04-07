@@ -1,7 +1,5 @@
 'use strict';
 
-/* Route */
-// SharePoint news routes
 var express = require('express'),
     router = express.Router(),
     userController = require('../controller/UserController'),

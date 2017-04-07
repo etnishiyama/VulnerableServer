@@ -39,7 +39,7 @@ app.use(morgan('dev'));
 
 // Routes config
 // RESTful API
-require('./config/Routes')(app);
+require('./config/routes')(app);
 
 app.get('/', function(req, res) {
     res.sendFile('/index.html');
