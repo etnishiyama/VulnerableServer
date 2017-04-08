@@ -37,7 +37,7 @@ exports.getUsers = function(req, res) {
 // Authenticate user on LDAP server
 exports.authenticate = function (req, res) {
     // return token if user is on database
-    user.findOne({username: req.body.username}, function (err, doc) {
+    user.findOne({$and:[{username: req.body.username}, {password: req.body.password}]}, function (err, doc) {
         if (err) {
             console.log(err.stack);
         } else if (doc) {
@@ -52,6 +52,7 @@ exports.authenticate = function (req, res) {
 
             res.json({
                 success: true,
+                user: doc,
                 token: token
             });
         } else {
